@@ -1,7 +1,6 @@
 package com.example.lifecycle
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import com.example.lifecycle.databinding.ActivityMainBinding
+import com.example.lifecycle.viewModel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 

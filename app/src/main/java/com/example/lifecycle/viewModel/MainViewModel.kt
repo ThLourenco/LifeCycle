@@ -1,4 +1,4 @@
-package com.example.lifecycle
+package com.example.lifecycle.viewModel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -32,7 +32,7 @@ class MainViewModel: ViewModel() {
     }
 }
 
-class NumberLiveData(initial: Int = 0): MutableLiveData<Int>(initial){
+class NumberLiveData(initial: Int = 0): MutableLiveData<Int>(initial) {
     override fun onActive() {
         super.onActive()
         Log.d("MainViewModel", "onActive")
@@ -42,6 +42,7 @@ class NumberLiveData(initial: Int = 0): MutableLiveData<Int>(initial){
         super.onInactive()
         Log.d("MainViewModel", "onInactive")
     }
+}
     //Cria uma classe chamada NumberLiveData que herda de MutableLiveData<Int>.
     //Aceita um valor inicial (initial), que por padrão é 0.
     //1️⃣ Otimização de Recursos: Podemos usar onActive() para iniciar alguma operação quando a UI precisa de dados (exemplo: iniciar uma requisição de API).
