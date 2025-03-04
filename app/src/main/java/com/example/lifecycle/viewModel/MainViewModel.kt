@@ -13,6 +13,8 @@ class MainViewModel: ViewModel() {
     private var _counter = NumberLiveData()
     val counter: LiveData<Int> = _counter
 
+     var incrementBy = 1
+
     //BOAS PRATICAS
     //private var counter = 0
     //   private set
@@ -26,7 +28,7 @@ class MainViewModel: ViewModel() {
     fun increment(){
         //value pode ser nulo
         val number = _counter.value ?: 0
-        _counter.value = number + 1
+        _counter.value = number + incrementBy
 
 
     }

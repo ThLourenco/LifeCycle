@@ -21,5 +21,4 @@ class LiveVideo: DefaultLifecycleObserver {
         super.onDestroy(owner)
         //liberar memora do video
     }
-
-}
+                                                                      }

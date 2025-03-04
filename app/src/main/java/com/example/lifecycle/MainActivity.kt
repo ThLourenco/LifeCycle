@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.fragment.app.activityViewModels
 import com.example.lifecycle.databinding.ActivityMainBinding
 import com.example.lifecycle.viewModel.MainViewModel
 
@@ -17,6 +18,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
+    //tambem conseguimos usar esse delegate dentro de uma activity
+    //private val viewModel by activityViewModels<MainViewModel>()
+    // porem nao é necessario usar o termo activityViewModels pois ja estamos dentro de uma activity
     //dessa maneira instanciamos o viewmodel
     private val viewModel by viewModels<MainViewModel>()
 
