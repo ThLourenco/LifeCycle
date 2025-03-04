@@ -1,17 +1,23 @@
-package com.example.lifecycle.apresentation.viewModel
+package com.example.lifecycle.apresentation.counter
 
-import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.lifecycle.data.CounterRepositoryImpl
+import com.example.lifecycle.domain.CounterRepository
 
-class MainViewModel: ViewModel() {
+class MainViewModel(
+        //nossa depedencia do model
+        private val repository: CounterRepository
+): ViewModel() {
     //🛠 Como funciona?
     //MutableLiveData pode armazenar qualquer tipo de dado (String, Int, List, etc.).
     //Ele notifica automaticamente todos os observadores sempre que o valor muda.
     //Muito usado em conjunto com ViewModel para gerenciar estados da UI de forma segura.
-    private var _counter = NumberLiveData()
-    val counter: LiveData<Int> = _counter
+        //PROGAM
+    //private var _counter = MutableLiveData(0)
+    //val counter: LiveData<Int> = _counter
+
+    val counter: LiveData<Int> = repository.getCounter()
 
      var incrementBy = 1
 
@@ -26,14 +32,13 @@ class MainViewModel: ViewModel() {
     //A única forma de modificar counter é através de métodos dentro da própria classe (incrementar() no exemplo).
 
     fun increment(){
-        //value pode ser nulo
-        val number = _counter.value ?: 0
-        _counter.value = number + incrementBy
+      repository.incrementCountBy(incrementBy)
 
 
     }
 }
 
+/*
 class NumberLiveData(initial: Int = 0): MutableLiveData<Int>(initial) {
     override fun onActive() {
         super.onActive()
@@ -44,7 +49,7 @@ class NumberLiveData(initial: Int = 0): MutableLiveData<Int>(initial) {
         super.onInactive()
         Log.d("MainViewModel", "onInactive")
     }
-}
+}*/
     //Cria uma classe chamada NumberLiveData que herda de MutableLiveData<Int>.
     //Aceita um valor inicial (initial), que por padrão é 0.
     //1️⃣ Otimização de Recursos: Podemos usar onActive() para iniciar alguma operação quando a UI precisa de dados (exemplo: iniciar uma requisição de API).

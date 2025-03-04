@@ -1,4 +1,4 @@
-package com.example.lifecycle
+package com.example.lifecycle.apresentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,9 +9,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
-import androidx.fragment.app.activityViewModels
+import com.example.lifecycle.R
+import com.example.lifecycle.ViewModelFactory
 import com.example.lifecycle.databinding.ActivityMainBinding
-import com.example.lifecycle.viewModel.MainViewModel
+import com.example.lifecycle.apresentation.counter.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +23,9 @@ class MainActivity : AppCompatActivity() {
     //private val viewModel by activityViewModels<MainViewModel>()
     // porem nao é necessario usar o termo activityViewModels pois ja estamos dentro de uma activity
     //dessa maneira instanciamos o viewmodel
-    private val viewModel by viewModels<MainViewModel>()
+    private val viewModel by viewModels<MainViewModel>{
+        ViewModelFactory()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

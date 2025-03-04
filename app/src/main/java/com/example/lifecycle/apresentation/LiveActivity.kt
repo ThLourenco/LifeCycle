@@ -1,9 +1,9 @@
-package com.example.lifecycle
+package com.example.lifecycle.apresentation
 
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.lifecycle.streaming.LiveVideo
+import com.example.lifecycle.apresentation.streaming.LiveVideo
 
 class LiveActivity: AppCompatActivity() {
 

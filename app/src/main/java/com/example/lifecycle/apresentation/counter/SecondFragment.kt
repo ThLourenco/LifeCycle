@@ -1,4 +1,4 @@
-package com.example.lifecycle.apresentation.viewModel
+package com.example.lifecycle.apresentation.counter
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import com.example.lifecycle.ViewModelFactory
 import com.example.lifecycle.databinding.FragmentSecondBinding
 
 /**
@@ -23,7 +24,9 @@ class SecondFragment : Fragment() {
     //private val viewModel by viewModels<MainViewModel>()
 
     //com delegate
-    private val viewModel by activityViewModels<MainViewModel>()
+    private val viewModel by activityViewModels<MainViewModel>{
+        ViewModelFactory()
+    }
     // o activityViewModels usa o msm codigo do view model abaixo
     //aqui o viewModelProvider nao esta recebendo fragmente (this)  e sim uma activity
     //viewModel = ViewModelProvider(activity as AppCompatActivity).get()

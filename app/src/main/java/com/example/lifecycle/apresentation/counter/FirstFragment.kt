@@ -1,4 +1,4 @@
-package com.example.lifecycle.apresentation.viewModel
+package com.example.lifecycle.apresentation.counter
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.lifecycle.R
+import com.example.lifecycle.ViewModelFactory
 import com.example.lifecycle.databinding.FragmentFirstBinding
 
 /**
@@ -21,7 +22,9 @@ class FirstFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     //activityViewModels ele pega nossa activity com o lifecycleOwner
-    private val viewModel by activityViewModels<MainViewModel>()
+    private val viewModel by activityViewModels<MainViewModel>{
+        ViewModelFactory()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
